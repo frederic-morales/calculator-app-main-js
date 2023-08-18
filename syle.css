@@ -1,7 +1,7 @@
 *{
     box-sizing: border-box;
-    padding: none;
-    margin: none;
+    padding: 0;
+    margin: 0;
 }
 :root{
                     /*Theme 1*/
@@ -23,11 +23,34 @@
                     /*Theme 2*/
     /*Backgrounds*/
     --light-gray: hsl(0, 0%, 90%);
-    
+    --grayish-red: hsl(0, 5%, 81%);
+    --very-light-gray: hsl(0, 0%, 93%);
     /*Keys*/
-
+    --dark-moderate-cyan: hsl(185, 42%, 37%);
+    --Very-dark-cyan: hsl(185, 58%, 25%);
+    --orange: hsl(25, 98%, 40%);
+    --dark-orange: hsl(25, 99%, 27%);
+    --light-grayish-yellow: hsl(45, 7%, 89%);
+    --dark-grayish-orange: hsl(35, 11%, 61%);
     /*Text*/
+    --very-dark-grayish-yellow: hsl(60, 10%, 19%);
+    --white: hsl(0, 0%, 100%);
 
+                    /*Theme 3*/
+    /*Backgrounds*/
+    --very-dark-violet-1: hsl(268, 75%, 9%);
+    --very-dark-violet-2: hsl(268, 71%, 12%);
+    /*Keys*/
+    --dark-violet: hsl(281, 89%, 26%);
+    --vivid-magenta: hsl(285, 91%, 52%);
+    --pure-cyan: hsl(176, 100%, 44%);
+    --soft-cyan: hsl(177, 92%, 70%);
+    --very-dark-violet: hsl(268, 47%, 21%);
+    --dark-magenta: hsl(290, 70%, 36%);
+    /*Text*/
+    --light-yellow: hsl(52, 100%, 62%);
+    --very-dark-blue: hsl(198, 20%, 13%);
+    --white: hsl(0, 0%, 100%);
 }
 html{
     font-family: 'League Spartan', sans-serif;
@@ -37,6 +60,29 @@ main{
     height: 100vh;
 }
 main .calc-container{
+    width: 100%;
     max-width: 375px;
-    
+    display: flex;
+    flex-direction: column;
+    background-color: var(--very-dark-desaturated-blue-1);
+    padding: 25px;
+}
+main .calc-container .theme-container{
+    display: flex;   
+    margin-top: 30px;
+    color: var(--white);
+    height: 75px;
+}
+main .calc-container .theme-container .section1{
+    width: 50%;
+}
+main .calc-container .theme-container .section1 p{
+    font-size: 32px;
+}
+main .calc-container .theme-container .section2{
+    width: 50%;
+}
+main .calc-container .theme-container .section2 .nums{
+    font-size: 12px;
+    letter-spacing: 8px;
 }
