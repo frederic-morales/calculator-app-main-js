@@ -58,6 +58,10 @@ html{
 main{
     width: 100%;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
 }
 main .calc-container{
     width: 100%;
@@ -67,9 +71,10 @@ main .calc-container{
     background-color: var(--very-dark-desaturated-blue-1);
     padding: 25px;
 }
+
+/*SECTION 1*/
 main .calc-container .theme-container{
     display: flex;   
-    margin-top: 30px;
     color: var(--white);
     height: 75px;
 }
@@ -78,11 +83,47 @@ main .calc-container .theme-container .section1{
 }
 main .calc-container .theme-container .section1 p{
     font-size: 32px;
+    margin-top: 10px;
 }
 main .calc-container .theme-container .section2{
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
 }
 main .calc-container .theme-container .section2 .nums{
     font-size: 12px;
-    letter-spacing: 8px;
+    letter-spacing: 8.5px;
 }
+.theme-container .section2 .select-theme{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.theme-container .section2 .select-theme p{
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 100;
+    margin-left: 15px;
+}
+.section2 .select-theme .color-theme[type=range]{
+    -webkit-appearance: none;
+    background: var(--very-dark-desaturated-blue-3);
+    cursor: pointer;
+    width: 75px;
+    height: 25px;
+    border-radius: 50px;
+    padding: 5px;
+}
+
+.section2 .select-theme .color-theme[type=range]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background: var(--red);
+}
+
+/*SECTION 2*/
