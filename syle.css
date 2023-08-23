@@ -15,10 +15,10 @@
     --red: hsl(6, 63%, 50%);
     --dark-red: hsl(6, 70%, 34%);
     --light-grayish-orange: hsl(30, 25%, 89%);
-    --grayish-orange: hsl(28, 16%, 65%)
+    --grayish-orange: hsl(28, 16%, 65%);
     /*Text*/
     --very-dark-grayish-blue: hsl(221, 14%, 31%);
-    --white: hsl(0, 0%, 100%)
+    --white: hsl(0, 0%, 100%);
 
                     /*Theme 2*/
     /*Backgrounds*/
@@ -60,12 +60,13 @@ main{
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
+    background-color: var(--very-dark-desaturated-blue-1);
 }
 main .calc-container{
     width: 100%;
-    max-width: 375px;
+    max-width: 550px;
     display: flex;
     flex-direction: column;
     background-color: var(--very-dark-desaturated-blue-1);
@@ -99,14 +100,14 @@ main .calc-container .theme-container .section2 .nums{
     margin-top: 10px;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     align-items: center;
 }
 .theme-container .section2 .select-theme p{
     font-size: 11px;
     letter-spacing: 2px;
     font-weight: 100;
-    margin-left: 15px;
+    margin-right: 20px;
 }
 .section2 .select-theme .color-theme[type=range]{
     -webkit-appearance: none;
@@ -125,5 +126,81 @@ main .calc-container .theme-container .section2 .nums{
     border-radius: 50%;
     background: var(--red);
 }
+.section2 .select-theme .color-theme[type=range]::-webkit-slider-thumb:hover{
+    filter: brightness(2);
+}
 
 /*SECTION 2*/
+main .calc-container .result-container{
+    width: 100%;
+    height: 90px;
+    background-color: var(--very-dark-desaturated-blue-3);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+main .calc-container .result-container p{
+    font-size: 40px;
+    margin-right: 25px;
+    color: var(--white);
+}
+
+/*SECTION 3*/
+main .calc-container .nums-container{
+    width: 100%;
+    height: 400px;
+    background-color: var(--very-dark-desaturated-blue-2);
+    color: var(--white);
+    margin-top: 25px;
+    border-radius: 10px;
+    padding: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 5%;
+}
+
+main .calc-container .nums-container .nums{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light-grayish-orange);
+    border-radius: 5px;
+    padding-top: 7px;
+    box-shadow: 0 4px 0 var(--grayish-orange);
+}
+main .calc-container .nums-container .nums:hover{
+    filter: brightness(125%);
+}
+main .calc-container .nums-container .nums p{
+    font-size: 30px;
+    color: var(--very-dark-grayish-blue);
+}
+main .calc-container .nums-container .text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--desaturated-dark-blue-1);
+    border-radius: 5px;
+    box-shadow: 0 4px 0 var(--desaturated-dark-blue-2);
+    font-size: 20px;
+}
+main .calc-container .nums-container .text:hover{
+    filter: brightness(125%);
+}
+main .calc-container .nums-container .reset{
+    grid-area: 5 / 1 / 6 / 3;
+}
+main .calc-container .nums-container .equal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--red);
+    border-radius: 5px;
+    grid-area: 5 / 3 / 6 / 5;
+    box-shadow: 0 4px 0 var(--dark-red);
+}
+main .calc-container .nums-container .equal:hover{
+    filter: brightness(125%);
+}
