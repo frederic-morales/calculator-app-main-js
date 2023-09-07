@@ -118,7 +118,6 @@ main .calc-container .theme-container .section2 .nums{
     border-radius: 50px;
     padding: 5px;
 }
-
 .section2 .select-theme .color-theme[type=range]::-webkit-slider-thumb{
     -webkit-appearance: none;
     height: 15px;
@@ -204,3 +203,97 @@ main .calc-container .nums-container .equal{
 main .calc-container .nums-container .equal:hover{
     filter: brightness(125%);
 }
+
+/* ---- THEME 2 ---- */
+.theme2-main{
+    background-color: var(--very-light-gray);
+}
+.theme2-main .calc-container{
+    background-color: var(--very-light-gray);
+}
+/*SECTION 1*/
+.theme2-main .calc-container .theme-container{
+    color: var(--very-dark-grayish-yellow);
+}
+.theme2-main .section2 .select-theme .color-theme[type=range]{
+    background-color: var(--grayish-red);
+}
+.theme2-main .section2 .select-theme .color-theme[type=range]::-webkit-slider-thumb{
+    background-color: var(--orange);
+}
+/*SECTION 2*/
+.theme2-main .calc-container .result-container{
+    background-color: var(--white);
+}
+.theme2-main .calc-container .result-container p{
+    color: var(--very-dark-grayish-yellow);
+}
+/*SECTION 3*/
+.theme2-main .calc-container .nums-container{
+    background-color: var(--grayish-red);
+}
+.theme2-main .calc-container .nums-container .nums{
+    background-color: var(--very-light-gray);
+    box-shadow: 0 4px 0 var(--grayish-orange);
+}
+.theme2-main .calc-container .nums-container .nums p{
+    color: var(--very-dark-grayish-yellow);
+}
+.theme2-main .calc-container .nums-container .text{
+    background-color: var(--dark-moderate-cyan);
+    box-shadow: 0 4px 0 var(--Very-dark-cyan);
+}
+.theme2-main .calc-container .nums-container .equal{
+    background-color: var(--orange);
+    box-shadow: 0 4px 0 var(--dark-orange);
+}
+
+/* ---- THEME 3 ---- */
+.theme3-main{
+    background-color: var(--very-dark-violet-1);
+}
+.theme3-main .calc-container{
+    background-color: var(--very-dark-violet-1);
+}
+/*SECTION 1*/
+.theme3-main .calc-container .theme-container{
+    color: var(--light-yellow);
+}
+.theme3-main .section2 .select-theme .color-theme[type=range]{
+    background-color: var(--very-dark-violet-2);
+}
+.theme3-main .section2 .select-theme .color-theme[type=range]::-webkit-slider-thumb{
+    background-color: var(--pure-cyan);
+}
+/*SECTION 2*/
+.theme3-main .calc-container .result-container{
+    background-color: var(--very-dark-violet-2);
+}
+.theme3-main .calc-container .result-container p{
+    color: var(--light-yellow);
+}
+/*SECTION 3*/
+.theme3-main .calc-container .nums-container{
+    background-color: var(--very-dark-violet-2);
+}
+.theme3-main .calc-container .nums-container .nums{
+    background-color: var(--very-dark-violet);
+    box-shadow: 0 4px 0 var(--dark-magenta);
+}
+.theme3-main .calc-container .nums-container .nums p{
+    color: var(--light-yellow);
+}
+.theme3-main .calc-container .nums-container .text{
+    background-color: var(--dark-violet);
+    box-shadow: 0 4px 0 var(--vivid-magenta);
+}
+.theme3-main .calc-container .nums-container .equal{
+    background-color: var(--pure-cyan);
+    box-shadow: 0 4px 0 var(--soft-cyan);
+}
+
+
+/*.attribution{
+    
+}*/
+
