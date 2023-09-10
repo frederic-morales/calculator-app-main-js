@@ -7,12 +7,20 @@ let result = resultContainer.innerHTML
 numsContainer.addEventListener("click", returnValue)
 
 function returnValue(event){
+    if(event.target.tagName === "DIV" || event.target.tagName === "P"){
+        
+        /*const parrafoDesdeDiv = event.target.querySelector("p");
+        const parrafoDirecto = event.target;*/
+        let parrafo
 
-    if(event.target.tagName === "DIV"){
-        const parrafo = event.target.querySelector("p");
+        if(event.target.tagName === "DIV"){
+            parrafo = event.target.querySelector("p")
+        } else if(event.target.tagName === "P"){
+            parrafo = event.target
+        }
+
         if(parrafo){
             const valor = parrafo.textContent;
-
             if(valor === "RESET"){
                 result = " "
                 resultContainer.textContent = result
@@ -30,6 +38,8 @@ function returnValue(event){
                 resultContainer.textContent  = result
             }
         }
+    /*const prueba = event.target.tagName;
+    console.log(parrafo, parrafoDirecto);*/
     }
 
     /*
@@ -39,8 +49,6 @@ function returnValue(event){
         
         console.log(result);
     }*/
-    console.log(typeof(result));
-
 }
 
 function showResult(operacion){

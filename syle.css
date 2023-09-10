@@ -168,6 +168,7 @@ main .calc-container .nums-container .nums{
     border-radius: 5px;
     padding-top: 7px;
     box-shadow: 0 4px 0 var(--grayish-orange);
+    cursor: pointer;
 }
 main .calc-container .nums-container .nums:hover{
     filter: brightness(125%);
@@ -175,6 +176,7 @@ main .calc-container .nums-container .nums:hover{
 main .calc-container .nums-container .nums p{
     font-size: 30px;
     color: var(--very-dark-grayish-blue);
+    cursor: pointer;
 }
 main .calc-container .nums-container .text{
     display: flex;
@@ -184,6 +186,7 @@ main .calc-container .nums-container .text{
     border-radius: 5px;
     box-shadow: 0 4px 0 var(--desaturated-dark-blue-2);
     font-size: 20px;
+    cursor: pointer;
 }
 main .calc-container .nums-container .text:hover{
     filter: brightness(125%);
@@ -199,6 +202,7 @@ main .calc-container .nums-container .equal{
     border-radius: 5px;
     grid-area: 5 / 3 / 6 / 5;
     box-shadow: 0 4px 0 var(--dark-red);
+    cursor: pointer;
 }
 main .calc-container .nums-container .equal:hover{
     filter: brightness(125%);
@@ -293,7 +297,46 @@ main .calc-container .nums-container .equal:hover{
 }
 
 
-/*.attribution{
-    
-}*/
+/*-----ATRIBUTION-----*/
 
+.attribution{
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.attribution p{
+    color: var(--light-grayish-orange);
+    font-size: 15px;
+    padding: 3px;
+}
+.attribution p a{
+    color: var(--light-grayish-orange);
+    text-decoration: none;
+}
+.attribution p a:hover{
+    color: var(--red);
+    filter: brightness(125%);
+}
+/*THEME2*/
+.theme2-main .attribution p{
+    color: var(--very-dark-grayish-yellow);
+}
+.theme2-main .attribution p a{
+    color: var(--very-dark-grayish-yellow);
+}
+.theme2-main .attribution p a:hover{
+    color: var(--orange);
+}
+
+/*THEME3*/
+.theme3-main .attribution p{
+    color: var(--light-yellow);
+}
+.theme3-main .attribution p a{
+    color: var(--light-yellow);
+}
+.theme3-main .attribution p a:hover{
+    color: var(--soft-cyan);
+}
