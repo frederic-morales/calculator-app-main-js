@@ -2,68 +2,66 @@ let resultContainer = document.getElementById('result')
 let numsContainer = document.getElementById('numsContainer')
 
 /*result es un string*/ 
-let result = resultContainer.innerHTML
+let result = resultContainer.textContent
+let ultElemento
 
 numsContainer.addEventListener("click", returnValue)
 
 function returnValue(event){
     if(event.target.tagName === "DIV" || event.target.tagName === "P"){
-        
-        /*const parrafoDesdeDiv = event.target.querySelector("p");
-        const parrafoDirecto = event.target;*/
+        /*-----------1----------*/ 
         let parrafo
-
         if(event.target.tagName === "DIV"){
             parrafo = event.target.querySelector("p")
         } else if(event.target.tagName === "P"){
             parrafo = event.target
         }
 
-        if(parrafo){
-            const valor = parrafo.textContent;
-            if(valor === "RESET"){
-                result = " "
-                resultContainer.textContent = result
-            }else if(valor === "x"){
-                result += "*"
-                resultContainer.textContent = result
-            }else if(valor === "="){
-                showResult(result)
-            }else if(valor === "DEL"){
+        const valor = parrafo.textContent;
+ 
+        if(valor === "RESET"){
+            result = " "
+            resultContainer.textContent = result
+        }   else if(valor === "DEL"){
                 result = result.slice(0, -1)
                 resultContainer.textContent  = result
-            } 
-             else{
-                result = result + valor;
-                resultContainer.textContent  = result
+            }   else if (valor === "x" && ultElemento !== "*" && ultElemento !== "+" && ultElemento !== "-" && ultElemento !== "/" && ultElemento !== "."){
+                    
+                    result = result + "*"
+                    resultContainer.textContent = result
+                }   else if(valor === "="){
+                        showResult(result)
+                    }
+        if (valor >= 0 && valor <= 10) {
+            result = result + valor
+            resultContainer.textContent = result
+        }   else if (valor !== "x" && valor !== "RESET" && valor !== "DEL" && valor !== "=" && ultElemento !== "+" && ultElemento !== "-" && ultElemento !== "*" && ultElemento !== "/" && ultElemento !== ".") {
+                result = result + valor
+                resultContainer.textContent = result
             }
-        }
-    /*const prueba = event.target.tagName;
-    console.log(parrafo, parrafoDirecto);*/
-    }
-
-    /*
-    for(i = 0; i < result.length; i += 3){
-        let resultComa = result.substring(i, i + 3)
-        resultComa = resultComa + ","
         
-        console.log(result);
-    }*/
-}
 
+    }
+    retornarUltimoElemento(result)
+}
 function showResult(operacion){
     try{
         resultContainer.textContent = eval(operacion)
         result = resultContainer.textContent
-        result = result.toString()
-        return result
+        /*result = Number(result)*/
+        return console.log(typeof(result));
     } catch (error){
         resultContainer.textContent = "Error"
         result = " "
-        return "Error en la operación", result
     }
 }
+function retornarUltimoElemento(resultado){
+    ultElemento = resultado[resultado.length - 1]
+    console.log(ultElemento);
+}
 
+
+/*SELECCIONAR COLOR*/
 let main = document.getElementById('main')
 let selectColor = document.getElementById('select-color')
 
