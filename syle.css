@@ -108,9 +108,11 @@ main .calc-container .theme-container .section2 .nums{
     letter-spacing: 2px;
     font-weight: 100;
     margin-right: 20px;
+    cursor: pointer;
 }
 .section2 .select-theme .color-theme[type=range]{
     -webkit-appearance: none;
+    appearance: none;
     background: var(--very-dark-desaturated-blue-3);
     cursor: pointer;
     width: 75px;
@@ -138,6 +140,7 @@ main .calc-container .result-container{
     display: flex;
     align-items: center;
     justify-content: end;
+    overflow: hidden;
 }
 main .calc-container .result-container p{
     font-size: 40px;

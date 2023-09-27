@@ -10,6 +10,7 @@ numsContainer.addEventListener("click", returnValue)
 
 function returnValue(event){
     if(event.target.tagName === "DIV" || event.target.tagName === "P"){
+
         /*-----------1----------*/ 
         let parrafo
         if(event.target.tagName === "DIV"){
@@ -19,38 +20,49 @@ function returnValue(event){
         }
 
         const valor = parrafo.textContent;
- 
+
         if(valor === "RESET"){
             result = " "
             resultContainer.textContent = result
             operacionHecha = false
-        }   else if(valor === "DEL"){
-                result = result.slice(0, -1)
-                resultContainer.textContent  = result
-                operacionHecha = false
-            }   else if (valor === "x" && ultElemento !== "*" && ultElemento !== "+" && ultElemento !== "-" && ultElemento !== "/" && ultElemento !== "."){
-                    result = result + "*"
-                    resultContainer.textContent = result 
-                    operacionHecha = false
-                }   else if(valor === "="){
-                        showResult(result)
-                        operacionHecha = true
-                    }
+        }   
+        else if(valor === "DEL"){
+            result = result.slice(0, -1)
+            resultContainer.textContent  = result
+            operacionHecha = false
+        }   
+        else if (valor === "x" && ultElemento != " "){
+            result = result + " * "
+            resultContainer.textContent = result 
+            operacionHecha = false
+        }   
+        else if(valor === "="){
+            showResult(result)
+            operacionHecha = true                    
+        }
         if (valor >= 0 && valor <= 10) {
-                if (operacionHecha) {
-                    result = " "
-                    operacionHecha = false
-                }
+            if (operacionHecha) {
+                result = " "
+                operacionHecha = false
+            }
+            result = result + valor
+            resultContainer.textContent = result
+        }   
+        else if (valor !== "x" && valor !== "RESET" && valor !== "DEL" && valor !== "=" && ultElemento != " ") {
+            if (valor === ".") {
                 result = result + valor
                 resultContainer.textContent = result
-        }   else if (valor !== "x" && valor !== "RESET" && valor !== "DEL" && valor !== "=" && ultElemento !== "+" && ultElemento !== "-" && ultElemento !== "*" && ultElemento !== "/" && ultElemento !== ".") {
-                result = result + valor
+                operacionHecha = false
+            } else {
+                result = result + " " + valor + " "
                 resultContainer.textContent = result
                 operacionHecha = false
             }
+            
+        }
+        retornarUltimoElemento(result)
+        colocarComaAlResult(result)
     }
-    retornarUltimoElemento(result)
-    console.log(operacionHecha,typeof(operacionHecha));
 }
 function showResult(operacion){
     try{
@@ -69,8 +81,27 @@ function retornarUltimoElemento(resultado){
 /*SELECCIONAR COLOR*/
 let main = document.getElementById('main')
 let selectColor = document.getElementById('select-color')
+let theme = document.getElementById('theme')
 
 selectColor.addEventListener("click", themeSelector)
+theme.addEventListener("click", changeTheme)
+
+function changeTheme(){
+    switch(selectColor.value){
+        case "1":
+            selectColor.value = "2"
+            break;
+        case "2":
+            selectColor.value = "3"
+            break;
+        case "3":
+            selectColor.value = "1"
+            break;
+        default:
+            break;
+    };
+    themeSelector()
+}
 
 function themeSelector() {
     switch (selectColor.value) {
@@ -90,3 +121,84 @@ function themeSelector() {
     }
 }
 
+function colocarComa(cadena) {
+    let cadenaConComa = ""
+    if (cadena.length > 3) {
+        for (let i = cadena.length - 1, contador = 0; i >= 0; i--) {
+        cadenaConComa = cadena[i] + cadenaConComa
+        contador++
+        // Insertar una coma después de cada grupo de tres dígitos
+            if (contador === 3 && i !== 0) {
+                cadenaConComa = "," + cadenaConComa
+                contador = 0
+            }
+        }
+    }
+    return cadenaConComa
+}
+
+function colocarComaAlResult(str) {
+
+    let strFinal
+
+    // SI RESULT(STR) SOLO TIENE NUMEROS
+    if (str.length <= 3) {
+        strFinal = str
+        resultContainer.textContent = strFinal
+    }
+    else{
+        strFinal = colocarComa(str)
+        resultContainer.textContent = strFinal
+    }
+    console.log(strFinal);
+}
+
+
+/*
+function colocarComaAlResult(str) {
+    //let str = "9029889 + 2788.5998 * 2 + 323332 - 5848"
+    //let cadenas
+    let strFinal
+
+    if (str.includes(" ")) {
+
+        cadenas = str.split(" ") // CONVERTIMOS NUESTRO STRING EN UN ARRAY DE STRING POR CADA SPACIO ECONTRADO
+        //console.log(cadenas);
+        
+        for (let i = 0; i < cadenas.length; i++) {
+            let cadena = cadenas[i]
+            
+            //SI EL STRING CONTIENE UNA EXPRESION ARITMETICA SOLO LA SUMAMOS AL STRING FINAL
+            if (cadena === "+" || cadena === "-" || cadena === "*" || cadena === "/") {
+                strFinal = strFinal + " " + cadena + " "
+            } 
+            else{
+                
+                if (cadena.includes(".")) {
+                    let cadenaConPunoYComa
+                    cadenaConPunto = cadena.split(".")
+                    cadenaConPunoYComa = colocarComa(cadenaConPunto[0]) + "." + cadenaConPunto[1]
+                    strFinal = strFinal + cadenaConPunoYComa
+                } 
+                else if (cadena.length > 3) { // SI EL STRING ES MAYOR A 3 LE AGREGAMOS UNA COMA AL INICIO 
+                    let cadenaConComa = colocarComa(cadena)
+                    strFinal = strFinal + cadenaConComa
+                } 
+                else{
+                    strFinal = strFinal + cadena
+                }
+            }
+        }   
+    } /*else{
+        cadenas = str
+        strFinal = colocarComa(str)
+    }
+
+    if (str.length > 0) {
+        strFinal = colocarComa(str)
+    }
+    return strFinal
+}
+*/
+/*let prueba = "9029889 + 8 * 478748 + 8888 - 4888"
+console.log(colocarComaAlResult(prueba));*/
